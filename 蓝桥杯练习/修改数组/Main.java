@@ -8,14 +8,14 @@ public class Main {
         int size = scan.nextInt();
 
         //新建一个动态数组list用于存储输入
-        ArrayList<Integer> list = new ArrayList<>();
+        ArrayList<Integer> list = new ArrayList<>(1000000);
 
         //将N个整数添加进list中
-        while(scan.hasNext())
+        while(list.size() < size)
           list.add(scan.nextInt());
 
         //新建另一个动态数组arr
-        ArrayList<Integer> arr = new ArrayList<>();
+        ArrayList<Integer> arr = new ArrayList<>(1000000);
         arr.add(list.get(0));
 
         //每当list中的第i个元素在arr中可找到，该元素+1，直到该元素在arr中不匹配
