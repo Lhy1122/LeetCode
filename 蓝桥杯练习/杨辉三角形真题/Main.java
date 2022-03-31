@@ -6,35 +6,52 @@ public class Main{
 		int n = sc.nextInt();
 		sc.close();
 		
-		int a = 3;
-        int ceng = 2;
-        long[] list = new long[1000000];
+        
+        long[] list1 = new long[100000];
+        long[] list2 = new long[100000];
 
-        list[0] = 1L;
-        list[1] = 1L;
-        list[2] = 1L;
-
-        loop:while(a < 1000000){
+        int a = 3;
+        int res = 7;
+        list1[0] = 1L;
+        list1[1] = 2L;
+        list1[2] = 1L;
+        list2[0] = 1L;
+        loop:while(a > 1){
             if(n == 1){
                 System.out.println(1);
                 break;
             }
-            list[a] = 1L;
-            if(a + ceng > 1000000)
+
+            if(n == 2){
+                System.out.println(5);
                 break;
-            list[a + ceng] = 1L;
-            for(int i = a + 1; i < a + ceng; i++){
-                list[i] = list[i - ceng - 1] + list[i - ceng];
-                if(list[i] == n){
-                    System.out.println(i + 1);
+            }
+
+            for(int i = 1; i < a; i++){
+                list2[i] = list1[i - 1] + list1[i];
+                res++;
+                if(list2[i] == n){
+                    System.out.println(res);
                     break loop;
                 }
             }
-            ceng++;
-            a = a + ceng;
+            list2[a] = 1;
+            a++;
+            res += 2;
+
+            for(int i = 1; i < a; i++){
+                list1[i] = list2[i - 1] + list2[i];
+                res++;
+                if(list1[i] == n){
+                    System.out.println(res);
+                    break loop;
+                }
+            }
+            list1[a] = 1;
+            a++;
+            res += 2;
         }
 
-		
-		
+        
 	}
 }
