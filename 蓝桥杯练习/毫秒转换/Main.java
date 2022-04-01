@@ -1,6 +1,10 @@
+import java.util.Scanner;
+
 public class Main{
     public static void main(String[] args){
-        double time = 1618708103.123;
+		Scanner sc = new Scanner(System.in);
+		double l = sc.nextDouble();
+        double time = l / 1000;
         double minute = 0;
         double hour = 0;
         while(time >= 3600){
@@ -18,7 +22,20 @@ public class Main{
         int b = (int) minute;
         int c = (int) time;
         
-            System.out.println("0" + a + ":0" + b + ":" + c);
+				if(a < 10)
+            System.out.print("0" + a + ":");
+				else
+						System.out.print(a + ":");
+			
+				if(b < 10)
+						System.out.print("0" + b + ":");
+				else
+						System.out.print(b + ":");
+			
+				if(c < 10)
+						System.out.print("0" + c);
+				else
+						System.out.print(c);
         
         
     }

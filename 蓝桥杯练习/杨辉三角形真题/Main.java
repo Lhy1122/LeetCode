@@ -16,7 +16,7 @@ public class Main{
         list1[1] = 2L;
         list1[2] = 1L;
         list2[0] = 1L;
-        loop:while(a > 1){
+        loop:while(a < 100000){
             if(n == 1){
                 System.out.println(1);
                 break;
