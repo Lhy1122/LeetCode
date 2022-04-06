@@ -6,7 +6,6 @@ public class Main{
             if(isz(a) == true)
                 res++;
         }
-
         System.out.println(res);
         
     }
