@@ -138,7 +138,8 @@ public class Main{
             for(int y = ll; y <= rr; y++){
                 if(isclose(x, y) == true)
                     list[x][y] = "*";
-                
+                else
+                    list[x][y] = " ";
             }
         }
 
