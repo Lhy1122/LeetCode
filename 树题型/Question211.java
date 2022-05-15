@@ -1,31 +1,30 @@
 import java.util.TreeMap;
 
-class WordDictionary {
-
-    private class Node{
-
+class WordDictionary{
+    public class Node{
         public boolean isWord;
         public TreeMap<Character, Node> next;
 
-        public Node(boolean isWord){
-            this.isWord = isWord;
+        public Node(boolean isword){
+            this.isWord = false;
             next = new TreeMap<>();
         }
 
         public Node(){
             this(false);
         }
+    
     }
 
     private Node root;
 
-    public WordDictionary() {
+    public WordDictionary(){
         root = new Node();
     }
-    
-    public void addWord(String word) {
+
+    public void addWord(String word){
         Node cur = root;
-        for(int i = 0 ; i < word.length() ; i ++){
+        for(int i = 0; i < word.length(); i++){
             char c = word.charAt(i);
             if(cur.next.get(c) == null)
                 cur.next.put(c, new Node());
@@ -33,13 +32,12 @@ class WordDictionary {
         }
         cur.isWord = true;
     }
-    
-    public boolean search(String word) {
+
+    public boolean search(String word){
         return match(root, word, 0);
     }
 
-    private boolean match(Node node, String word, int index){
-
+    public boolean match(Node node, String word, int index){
         if(index == word.length())
             return node.isWord;
 
@@ -53,16 +51,9 @@ class WordDictionary {
         else{
             for(char nextChar: node.next.keySet())
                 if(match(node.next.get(nextChar), word, index + 1))
-                    return true;
-            return false;
+                    return truel;
+        return false;
         }
     }
 
 }
-
-/**
- * Your WordDictionary object will be instantiated and called as such:
- * WordDictionary obj = new WordDictionary();
- * obj.addWord(word);
- * boolean param_2 = obj.search(word);
- */
