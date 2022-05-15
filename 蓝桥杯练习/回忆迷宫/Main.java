@@ -42,9 +42,6 @@ public class Main{
         sc.close();
         
 
-        
-        
-
         int a = 99, b = 99, c = 0;
         list[a][b] = " ";
 
